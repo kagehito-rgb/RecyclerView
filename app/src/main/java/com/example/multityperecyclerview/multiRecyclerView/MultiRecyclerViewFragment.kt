@@ -13,27 +13,20 @@ class MultiRecyclerViewFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentMultiRecyclerBinding.inflate(inflater)
         val recyclerViewAdapter = MultiRecyclerViewAdapter(requireContext())
-        recyclerViewAdapter.run {
-            addItem(MultiRecyclerViewAdapter.ListItem.HeaderItem(
-                "月曜日"
-            ))
-            addItem(MultiRecyclerViewAdapter.ListItem.DetailItem(
-                "カレー"
-            ))
-            addItem(MultiRecyclerViewAdapter.ListItem.SummaryItem(
-                "ちゃんぽん",
-                30
-            ))
-            addItem(MultiRecyclerViewAdapter.ListItem.HeaderItem(
-                "火曜日"
-            ))
-            addItem(MultiRecyclerViewAdapter.ListItem.DetailItem(
-                "とんかつ"
-            ))
-            addItem(MultiRecyclerViewAdapter.ListItem.SummaryItem(
-                "ラーメン",
-                70
-            ))
+        val menuData = WeekHeader(
+            "月曜日",
+            DetailMenu(
+                "カレー",
+                SummaryMenu(
+                    "うどん",
+                    570
+                )
+            )
+        )
+        recyclerViewAdapter.items.apply {
+            add(MultiRecyclerViewAdapter.ListItem.HeaderItem(menuData))
+            add(MultiRecyclerViewAdapter.ListItem.DetailItem(menuData.detailMenu))
+            add(MultiRecyclerViewAdapter.ListItem.SummaryItem(menuData.detailMenu.summaryMenu))
         }
         binding.multiRecycler.run {
             adapter = recyclerViewAdapter

@@ -9,14 +9,14 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="@{item.value}"
+                android:text="@{item.summary.menu}"
                 android:padding="8dp"
                 tools:text="Summary value"
         />
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(item.count)}"
+                android:text="@{String.valueOf(item.summary.count)}"
                 android:padding="8dp"
                 tools:text="Summary count"
         />

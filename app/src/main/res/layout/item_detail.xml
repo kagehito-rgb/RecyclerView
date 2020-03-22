@@ -7,7 +7,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{item.value}"
+            android:text="@{item.detail.menu}"
             android:padding="8dp"
             tools:text="LIST ITEM"
     />

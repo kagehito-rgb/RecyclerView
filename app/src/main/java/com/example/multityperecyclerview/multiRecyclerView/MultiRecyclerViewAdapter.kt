@@ -46,12 +46,6 @@ class MultiRecyclerViewAdapter(private val context: Context): RecyclerView.Adapt
         }
     }
 
-    fun addItem(item: ListItem) {
-        val addIndex = items.size
-        items.add(item)
-        notifyItemInserted(addIndex)
-    }
-
     companion object {
         private const val HEADER = R.id.header_item
         private const val DETAIL = R.id.detail_item
@@ -60,9 +54,9 @@ class MultiRecyclerViewAdapter(private val context: Context): RecyclerView.Adapt
     }
 
     sealed class ListItem {
-        class HeaderItem(val label: String) : ListItem()
-        class DetailItem(val value: String): ListItem()
-        class SummaryItem(val value: String, val count: Int): ListItem()
+        class HeaderItem(val header: WeekHeader) : ListItem()
+        class DetailItem(val detail: DetailMenu): ListItem()
+        class SummaryItem(val summary: SummaryMenu): ListItem()
         object BorderItem: ListItem()
     }
 
