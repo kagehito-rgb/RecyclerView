@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="item"
+                  type="com.example.multityperecyclerview.multiRecyclerView.MultiRecyclerViewAdapter.ListItem.BorderItem"/>
+    </data>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="3dp"
+            android:background="@color/colorAccent"
+    />
+</layout>
