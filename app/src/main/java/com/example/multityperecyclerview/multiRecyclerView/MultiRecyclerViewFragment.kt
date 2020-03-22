@@ -15,18 +15,17 @@ class MultiRecyclerViewFragment : Fragment() {
         val recyclerViewAdapter = MultiRecyclerViewAdapter(requireContext())
         val menuData = WeekHeader(
             "月曜日",
-            DetailMenu(
-                "カレー",
-                SummaryMenu(
-                    "うどん",
-                    570
-                )
-            )
+            listOf(DetailMenu("カレー"), DetailMenu("うどん"),DetailMenu("ラーメン"))
         )
         recyclerViewAdapter.items.apply {
             add(MultiRecyclerViewAdapter.ListItem.HeaderItem(menuData))
-            add(MultiRecyclerViewAdapter.ListItem.DetailItem(menuData.detailMenu))
-            add(MultiRecyclerViewAdapter.ListItem.SummaryItem(menuData.detailMenu.summaryMenu))
+            menuData.detailMenu.forEach {
+                add(MultiRecyclerViewAdapter.ListItem.DetailItem(it))
+            }
+            add(MultiRecyclerViewAdapter.ListItem.SummaryItem(SummaryMenu(
+                "そば",
+                2050
+            )))
         }
         binding.multiRecycler.run {
             adapter = recyclerViewAdapter
