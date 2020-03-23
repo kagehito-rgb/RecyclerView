@@ -64,21 +64,21 @@ class MultiRecyclerViewAdapter(private val context: Context): RecyclerView.Adapt
         fun bind(item: ListItem.HeaderItem) {
             binding.apply {
                 this.item = item
-            }
+            }.executePendingBindings()
         }
     }
     data class DetailVieHolder(val binding: ItemDetailBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ListItem.DetailItem) {
             binding.apply {
                 this.item = item
-            }
+            }.executePendingBindings()
         }
     }
     data class SummaryViewHolder(val binding: ItemSummaryBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ListItem.SummaryItem) {
             binding.apply {
                 this.item = item
-            }
+            }.executePendingBindings()
         }
     }
     data class BorderViewHolder(val binding: ItemBorderBinding): RecyclerView.ViewHolder(binding.root)
